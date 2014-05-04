@@ -19,7 +19,7 @@
 -- It is recommended to embed GeminiBucket, otherwise you'll have to specify a custom `self` on all calls you
 -- make into GeminiBucket.
 -- @usage
--- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", "Gemini:Bucket-1.0")
+-- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", false, {}, "Gemini:Bucket-1.0")
 -- 
 -- function MyAddon:OnEnable()
 --   -- Register a bucket that listens to all the HP related events, 
@@ -209,7 +209,7 @@ end
 -- @param callback The callback function, either as a function reference, or a string pointing to a method of the addon object.
 -- @return The handle of the bucket (for unregistering)
 -- @usage
--- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("MyAddon", "Gemini:Bucket-1.0")
+-- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("MyAddon", false, {}, "Gemini:Bucket-1.0")
 -- MyAddon:RegisterBucketEvent("UnitCreated", 0.2,"OnUnitsCreated")
 -- 
 -- function MyAddon:OnUnitsCreated()
@@ -226,7 +226,7 @@ end
 -- @param callback The callback function, either as a function reference, or a string pointing to a method of the addon object.
 -- @return The handle of the bucket (for unregistering)
 -- @usage
--- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("MyAddon", "Gemini:Bucket-1.0")
+-- MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("MyAddon", false, {}, "Gemini:Bucket-1.0")
 -- MyAddon:RegisterBucketEvent("SomeAddon_InformationMessage", 0.2, "ProcessData")
 -- 
 -- function MyAddon:ProcessData()

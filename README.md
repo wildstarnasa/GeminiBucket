@@ -23,7 +23,7 @@ It is recommended to embed AceBucket, otherwise you'll have to specify a custom 
 ##Example
 
 ```lua
-MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", "Gemini:Bucket-1.0")
+MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", false, {}, "Gemini:Bucket-1.0")
 
 function MyAddon:OnEnable()
   -- Register a bucket that listens to all the HP related events, 
@@ -75,7 +75,7 @@ The handle of the bucket (for unregistering)
 ###Usage
 
 ```lua
-MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", "Gemini:Bucket-1.0")
+MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", false, {}, "Gemini:Bucket-1.0")
 MyAddon:RegisterBucketEvent("UnitCreated", 0.2,"OnUnitsCreated")
 
 function MyAddon:OnUnitsCreated()
@@ -108,7 +108,7 @@ The handle of the bucket (for unregistering)
 ###Usage
 
 ```lua
-MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", "Gemini:Bucket-1.0")
+MyAddon = Apollo.GetPackage("Gemini:Addon-1.0").tPackage:NewAddon("BucketExample", false, {}, "Gemini:Bucket-1.0")
 MyAddon:RegisterBucketEvent("SomeAddon_InformationMessage", 0.2, "ProcessData")
 
 function MyAddon:ProcessData()

@@ -80,6 +80,10 @@ local bucketCache = setmetatable({}, {__mode='k'})
 --[[
 	 xpcall safecall implementation
 ]]
+
+local tLibError = Apollo.GetPackage("Gemini:LibError-1.0")
+local fnErrorHandler = tLibError and tLibError.tPackage.Error or Print
+
 local xpcall = xpcall
 
 local function CreateDispatcher(argCount)
@@ -101,7 +105,7 @@ local function CreateDispatcher(argCount)
 	local ARGS = {}
 	for i = 1, argCount do ARGS[i] = "arg"..i end
 	code = code:gsub("ARGS", tconcat(ARGS, ", "))
-	return assert(loadstring(code, "safecall Dispatcher["..argCount.."]"))(xpcall, error)
+	return assert(loadstring(code, "safecall Dispatcher["..argCount.."]"))(xpcall, fnErrorHandler)
 end
 
 local Dispatchers = setmetatable({}, {__index=function(self, argCount)
@@ -110,7 +114,7 @@ local Dispatchers = setmetatable({}, {__index=function(self, argCount)
 	return dispatcher
 end})
 Dispatchers[0] = function(func)
-	return xpcall(func, errorhandler)
+	return xpcall(func, fnErrorHandler)
 end
  
 local function safecall(func, ...)

@@ -17,8 +17,8 @@ Note: Currently this has some issues as the arg1 tends to be a unit object which
 
 **TODO:** Decide if store something else or stop using weak keys
 
-GeminiBucket-1.0 can be embeded into your addon, either explicitly by calling AceBucket:Embed(MyAddon) or by specifying it as an embeded library in your GeminiAddon. All functions will be available on your addon object and can be accessed directly, without having to explicitly call AceBucket itself.
-It is recommended to embed AceBucket, otherwise you'll have to specify a custom `self` on all calls you make into AceBucket.
+GeminiBucket-1.0 can be embeded into your addon, either explicitly by calling GeminiBucket:Embed(MyAddon) or by specifying it as an embeded library in your GeminiAddon. All functions will be available on your addon object and can be accessed directly, without having to explicitly call GeminiBucket itself.
+It is recommended to embed GeminiBucket, otherwise you'll have to specify a custom `self` on all calls you make into GeminiBucket.
 
 ##Example
 
@@ -51,7 +51,7 @@ end
 ```
 
 
-##AceBucket:RegisterBucketEvent(event, interval, callback)
+##GeminiBucket:RegisterBucketEvent(event, interval, callback)
 Register a Bucket for an event (or a set of events)
 
 ###Parameters
@@ -84,7 +84,7 @@ end
 ```
 
 
-##AceBucket:RegisterBucketMessage(message, interval, callback)
+##GeminiBucket:RegisterBucketMessage(message, interval, callback)
 Register a Bucket for an GeminiEvent-1.0 addon message (or a set of messages)
 
 ###Parameters
@@ -116,12 +116,12 @@ function MyAddon:ProcessData()
 end
 ```
 
-##AceBucket:UnregisterAllBuckets()
+##GeminiBucket:UnregisterAllBuckets()
 Unregister all buckets of the current addon object (or custom "self").
 
 
 
-##AceBucket:UnregisterBucket(handle)
+##GeminiBucket:UnregisterBucket(handle)
 Unregister any events and messages from the bucket and clear any remaining data.
 
 ###Parameters

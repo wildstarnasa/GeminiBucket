@@ -62,8 +62,12 @@ GeminiBucket.embeds = GeminiBucket.embeds or {}
 
 
 -- Library references, bound in OnLoad
-local GeminiTimer
-local GeminiEvent
+local GeminiTimer = Apollo.GetPackage("Gemini:Timer-1.0") and Apollo.GetPackage("Gemini:Timer-1.0").tPackage or nil
+local GeminiEvent = Apollo.GetPackage("Gemini:Event-1.0") and Apollo.GetPackage("Gemini:Event-1.0").tPackage or nil
+if not GeminiTimer or not GeminiEvent then
+	error("GeminiTimer and GeminiEvent are Required for GeminiBucket!")
+end
+
 
 -- Lua APIs
 local tconcat = table.concat
@@ -304,8 +308,6 @@ end
 
 -- Initialization routines
 function GeminiBucket:OnLoad()
-	GeminiTimer = Apollo.GetPackage("Gemini:Timer-1.0").tPackage
-	GeminiEvent = Apollo.GetPackage("Gemini:Event-1.0").tPackage
 end
 
 function GeminiBucket:OnDependencyError(strDep, strError)

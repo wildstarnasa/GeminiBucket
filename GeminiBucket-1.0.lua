@@ -47,7 +47,7 @@
 -- @class file
 -- @name Gemini:Bucket-1.0.lua
 
-local MAJOR, MINOR = "Gemini:Bucket-1.0", 2
+local MAJOR, MINOR = "Gemini:Bucket-1.0", 3
 -- Get a reference to the package information if any
 local APkg = Apollo.GetPackage(MAJOR)
 -- If there was an older version loaded we need to see if this is newer
@@ -86,7 +86,7 @@ local bucketCache = setmetatable({}, {__mode='k'})
 ]]
 
 local tLibError = Apollo.GetPackage("Gemini:LibError-1.0")
-local fnErrorHandler = tLibError and tLibError.tPackage.Error or Print
+local fnErrorHandler = tLibError and tLibError.tPackage and tLibError.tPackage.Error or Print
 
 local xpcall = xpcall
 
